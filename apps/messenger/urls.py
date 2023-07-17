@@ -15,13 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from .views import ThreadDetail, ThreadList, add_message
+from .views import ThreadDetail, ThreadList, add_message, start_thread
 
 
 app_name = 'messenger'
 urlpatterns = [
     path('', ThreadList.as_view(), name='list'),
     path('detail/<int:pk>/', ThreadDetail.as_view(), name='detail'),
-    path('detail/<int:pk>/add/', add_message, name='add'),
-
+    path('thread/<int:pk>/add/', add_message, name='add'),
+    path('thread/start/<username>/', start_thread, name='start'),
 ]

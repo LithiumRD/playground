@@ -76,6 +76,10 @@
                     message.innerHTML = '<small><i> Hace unos segundos</i></small><br>'+decodeURIComponent(content);
                     document.getElementById("thread").appendChild(message);
                     ScrollBottonInThread();
+                    // Si es el 1er mensaje del hilo, se actualiza la pagina completa para que aparezca el hilo en el listado
+                    //if (data.first){
+                      windows.location.href = "{% url 'messenger:detail' thread.pk %}"
+                    //}
                   })
 
               })
